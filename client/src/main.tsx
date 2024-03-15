@@ -4,7 +4,7 @@ import './index.css'
 import { ThemeProvider } from './components/theme-provider.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <ThemeProvider>
+  <ThemeProvider defaultTheme='system' storageKey='vite-ui-theme'>
         <App />
   </ThemeProvider>
 
