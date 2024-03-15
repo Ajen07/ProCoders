@@ -1,14 +1,10 @@
-import { ModeToggle } from './components/theme-toggle'
-import { Button } from './components/ui/button'
+import RegisterLogin from './pages/RegisterLogin'
 
 function App() {
 
   return (
     <>
-      <div>
-        <ModeToggle/>
-        <Button variant='default'>Button</Button>
-      </div>
+     <Chat/>
     </>
   )
 }
