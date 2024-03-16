@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import User from "../models/user.model";
 import BadRequestError from "../errors/badRequest.error";
+import { StatusCodes } from "http-status-codes";
 
 const register = async (req: Request, res: Response) => {
   const { name, email, password } = req.body;
@@ -13,6 +14,7 @@ const register = async (req: Request, res: Response) => {
   res.status(201).json({ msg: "Registration successfully", user: newUser });
 };
 const login = async (req: Request, res: Response) => {
-  res.send("Login Route");
+  
+  res.status(StatusCodes.OK).json({ msg: "login Successfull" });
 };
 export { register, login };

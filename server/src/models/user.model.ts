@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-
-
+import passportLocalMongoose from "passport-local-mongoose";
+import bcrypt from "bcrypt";
 
 const userSchema = new mongoose.Schema(
   {
@@ -23,13 +23,25 @@ const userSchema = new mongoose.Schema(
       unique: true,
       trim: true,
       minlength: 3,
+      select: false,
     },
   },
   {
     timestamps: true,
   }
 );
+userSchema.pre("save", async function () {
+  if (!this.isModified("password")) {
+    return;
+  }
+  const salt = bcrypt.genSaltSync(16);
+  this.password = await bcrypt.hash(this.password, salt);
+});
+userSchema.methods.comparePassword = async function (userPassword: string) {
+  const isMatch = await bcrypt.compare(userPassword, this.password);
+  return isMatch;
+};
 
-export default  mongoose.model("User", userSchema);
+userSchema.plugin(passportLocalMongoose);
 
-
+export default mongoose.model("User", userSchema);
