@@ -1,6 +1,10 @@
+import Sidebar from "@/components/sidebar"
+
 const Chat = () => {
   return (
-    <div>Chat</div>
+    <div className="flex">
+      <Sidebar />
+    </div>
   )
 }
 

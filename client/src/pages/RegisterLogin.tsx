@@ -26,7 +26,7 @@ const RegisterLogin = () => {
               <Button>Sign In</Button>
             </form>
             <hr />
-            <Button><AiOutlineGithub size={30} className="inline mr-3"/>Sign In with Github</Button>
+            <Button variant='secondary'><AiOutlineGithub size={30} className="inline mr-3"/>Sign In with GitHub</Button>
           </div>
         </CardContent>
       </Card>
