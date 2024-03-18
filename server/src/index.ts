@@ -12,6 +12,7 @@ dotenv.config();
 //Routes
 
 import authRoutes from "./routes/auth.route";
+import mentorRoures from "./routes/mentor.route";
 import notFound from "./middleware/notFound.middleware";
 import errorHandler from "./middleware/errorHandling.middleware";
 
@@ -42,8 +43,12 @@ app.use(passport.session());
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
 });
+app.get("/log", (req: Request, res: Response) => {
+  res.send("Hello World!");
+});
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/mentor", mentorRoures);
 
 app.use(notFound);
 app.use(errorHandler);
