@@ -16,6 +16,10 @@ const experienceSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  pricePerMonth:{
+    type:Number,
+    required:true,
+  },
   startDate: {
     type: Date,
     required: true,
