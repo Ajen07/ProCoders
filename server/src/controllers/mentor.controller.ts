@@ -2,6 +2,7 @@ import { BadRequestError, NotFoundError } from "../errors/index";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import Mentor from "../models/mentor.model";
+import { IUser } from "lib/types";
 
 const getAllMentors = async (req: Request, res: Response) => {
   const mentors = await Mentor.find({});
@@ -29,8 +30,8 @@ const registerMentor = async (req: Request, res: Response) => {
   if (!skills || !experiences) {
     throw new BadRequestError("Please fill all the fields");
   }
-  const mentorId = (req?.user as any)?._id;
-  const mentor = await Mentor.create({
+  const mentorId = (req?.user as IUser)?._id;
+  await Mentor.create({
     profileId: mentorId,
     skills,
     experiences,

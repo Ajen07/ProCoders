@@ -5,6 +5,9 @@ export interface IUser {
   password: string;
   createdAt: string;
   updatedAt: string;
+  githubId: string;
+  __v: number;
+  role:string
 }
 
 export interface Email {
