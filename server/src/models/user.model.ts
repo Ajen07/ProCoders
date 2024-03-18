@@ -19,24 +19,27 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, "Password is required."],
       unique: true,
       trim: true,
       minlength: 3,
       select: false,
+    },
+    githubId: {
+      type: String,
+      trim: true,
+      default: "",
+    },
+    role: {
+      type: String,
+      enum: ["mentee", "admin", "mentor"],
+      default: "mentee",
     },
   },
   {
     timestamps: true,
   }
 );
-userSchema.pre("save", async function () {
-  if (!this.isModified("password")) {
-    return;
-  }
-  const salt = bcrypt.genSaltSync(16);
-  this.password = await bcrypt.hash(this.password, salt);
-});
+
 userSchema.methods.comparePassword = async function (userPassword: string) {
   const isMatch = await bcrypt.compare(userPassword, this.password);
   return isMatch;
