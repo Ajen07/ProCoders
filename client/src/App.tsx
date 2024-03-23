@@ -1,6 +1,5 @@
 import Sidebar from './components/sidebar'
-import Chat from './pages/Chat'
-import RegisterLogin from './pages/RegisterLogin'
+import Mentors from './pages/Mentors'
 
 function App() {
 
@@ -8,8 +7,7 @@ function App() {
     <>
       <Sidebar />
       <main className='ml-16 px-1'>
-        {/* <RegisterLogin /> */}
-        <Chat />
+        <Mentors/>
       </main>
     </>
   )

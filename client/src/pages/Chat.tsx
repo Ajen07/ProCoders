@@ -51,8 +51,8 @@ const Chat = () => {
         </div>
       </div>
 
-      <div className="bg-sky-50 dark:bg-slate-900 flex flex-col flex-grow relative">
-        <div className="flex relative top-0 w-full py-3 px-4 bg-white h-18 dark:bg-slate-800 border-b-2">
+      <div className="bg-sky-50 dark:bg-slate-900 flex flex-col flex-grow">
+        <div className="flex top-0 w-full py-3 px-4 bg-white h-18 dark:bg-slate-800 border-b-2">
           <div className="flex gap-4">
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" />
@@ -65,25 +65,34 @@ const Chat = () => {
 
           </div>
         </div>
-        <ScrollArea className="w-full px-4 py-2 h-full relative">
+        <ScrollArea className="w-full px-4 py-2 h-full flex justify-center">
           {/* message from the other user */}
-          <Card className="max-w-lg my-1">
+          <Card className="w-fit max-w-lg my-1">
             <CardContent className="py-2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ducimus amet, necessitatibus iste minus ipsum repellendus consequuntur, excepturi animi nostrum quos consectetur maxime placeat nobis eius unde fugit. Minus velit similique blanditiis
+              Hey how can I help you today?
+            <small className="block">{(new Date()).toLocaleTimeString()}</small>
             </CardContent>
-            <CardFooter>
-              <small>{(new Date()).toLocaleTimeString()}</small>
-            </CardFooter>
           </Card>
 
           {/* message from us */}
-          <Card className="max-w-lg my-1 bg-blue-500 text-white dark:bg-blue-950 absolute right-0 mx-4">
+          <Card className="w-fit max-w-lg my-1 bg-blue-500 text-white dark:bg-slate-700 ml-auto">
             <CardContent className="py-2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ducimus amet, necessitatibus iste minus ipsum repellendus consequuntur, excepturi animi nostrum quos consectetur maxime placeat nobis eius unde fugit. Minus velit similique blanditiis
+              Hey I've a trouble in setting up my account.
+            <small className="block">{(new Date()).toLocaleTimeString()}</small>
             </CardContent>
-            <CardFooter>
-              <small>{(new Date()).toLocaleTimeString()}</small>
-            </CardFooter>
+          </Card>
+
+          <Card className="w-fit max-w-lg my-1">
+            <CardContent className="py-2">
+              What seems to be the problem?
+            <small className="block">{(new Date()).toLocaleTimeString()}</small>
+            </CardContent>
+          </Card>
+          <Card className="w-fit max-w-lg my-1">
+            <CardContent className="py-2">
+              Send me the picture
+            <small className="block">{(new Date()).toLocaleTimeString()}</small>
+            </CardContent>
           </Card>
         </ScrollArea>
 
